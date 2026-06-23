@@ -1108,16 +1108,16 @@ function renderCertificates() {
 }
 
 function renderTabs() {
-  tabRoot.innerHTML = brands.map((brand) => `
-    <button class="tab" role="tab" aria-selected="${brand === activeBrand}" data-brand="${brand}">
+  tabRoot.innerHTML = brands.map((brand, index) => `
+    <button class="tab" role="tab" aria-selected="${brand === activeBrand}" data-brand="${brand}" data-reveal-index="${index}">
       ${brand}
     </button>
   `).join("");
 }
 
 function renderTypeTabs() {
-  typeRoot.innerHTML = Object.entries(categoryLabels).map(([type, label]) => `
-    <button class="tab type-tab" role="tab" aria-selected="${type === activeType}" data-type="${type}">
+  typeRoot.innerHTML = Object.entries(categoryLabels).map(([type, label], index) => `
+    <button class="tab type-tab" role="tab" aria-selected="${type === activeType}" data-type="${type}" data-reveal-index="${index}">
       ${label}
     </button>
   `).join("");
@@ -1461,8 +1461,11 @@ function applyReveal(root = document) {
 
   items.forEach((item, index) => {
     const cardIndex = Number(item.dataset.revealIndex);
-    const delayIndex = Number.isFinite(cardIndex) ? cardIndex % 4 : Math.min(index, 5);
-    item.style.setProperty("--reveal-delay", `${delayIndex * 70}ms`);
+    const isGridItem = Boolean(item.closest(".product-grid, .cert-grid"));
+    const delayIndex = Number.isFinite(cardIndex)
+      ? (isGridItem ? cardIndex % 4 : Math.min(cardIndex, 12))
+      : Math.min(index, 5);
+    item.style.setProperty("--reveal-delay", `${delayIndex * 65}ms`);
   });
 
   if (!("IntersectionObserver" in window)) {

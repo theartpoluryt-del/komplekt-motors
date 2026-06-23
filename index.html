@@ -6,7 +6,7 @@
   <title>Комплект-Моторс | Смазочные материалы для моторов</title>
   <meta name="description" content="Комплект-Моторс в Челябинске: моторные, трансмиссионные, гидравлические масла, антифризы и смазочные материалы для техники.">
   <link rel="preconnect" href="https://kmo74.ru">
-  <link rel="stylesheet" href="styles.css?v=reveal-6">
+  <link rel="stylesheet" href="styles.css?v=reveal-10">
 </head>
 <body>
   <header class="site-header">
@@ -36,7 +36,7 @@
       </div>
     </section>
 
-    <section class="section company reveal" id="company">
+    <section class="section company" id="company">
       <div class="section-heading reveal-item">
         <h2>О компании</h2>
         <div class="module-line"></div>
@@ -54,24 +54,24 @@
       </div>
     </section>
 
-    <section class="section catalog reveal" id="catalog">
-      <div class="section-heading reveal-item">
-        <h2>Каталог продукции</h2>
-        <div class="module-line"></div>
-        <p>Выберите бренд и тип смазочного материала.</p>
+    <section class="section catalog" id="catalog">
+      <div class="section-heading">
+        <h2 class="reveal-item" data-reveal-index="0">Каталог продукции</h2>
+        <div class="module-line reveal-item" data-reveal-index="1"></div>
+        <p class="reveal-item" data-reveal-index="2">Выберите бренд и тип смазочного материала.</p>
       </div>
-      <p class="filter-label reveal-item">Выберите бренд</p>
-      <div class="tabs reveal-item" id="brandTabs" role="tablist" aria-label="Каталог брендов"></div>
-      <p class="filter-label reveal-item">Выберите тип смазочных материалов</p>
-      <div class="tabs type-tabs reveal-item" id="typeTabs" role="tablist" aria-label="Типы смазочных материалов"></div>
-      <div class="catalog-toolbar reveal-item">
-        <input id="searchInput" type="search" placeholder="Поиск по товарам Repsol" aria-label="Поиск по каталогу">
-        <span id="productCount"></span>
+      <p class="filter-label reveal-item" data-reveal-index="3">Выберите бренд</p>
+      <div class="tabs reveal-item" id="brandTabs" data-reveal-index="4" role="tablist" aria-label="Каталог брендов"></div>
+      <p class="filter-label reveal-item" data-reveal-index="5">Выберите тип смазочных материалов</p>
+      <div class="tabs type-tabs reveal-item" id="typeTabs" data-reveal-index="6" role="tablist" aria-label="Типы смазочных материалов"></div>
+      <div class="catalog-toolbar">
+        <input class="reveal-item" data-reveal-index="7" id="searchInput" type="search" placeholder="Поиск по товарам Repsol" aria-label="Поиск по каталогу">
+        <span class="reveal-item" data-reveal-index="8" id="productCount"></span>
       </div>
       <div class="product-grid" id="productGrid"></div>
     </section>
 
-    <section class="section certificates reveal" id="certificates">
+    <section class="section certificates" id="certificates">
       <div class="section-heading reveal-item">
         <h2>Сертификаты и подтверждающие материалы</h2>
         <div class="module-line"></div>
@@ -147,6 +147,6 @@
     </article>
   </dialog>
 
-  <script src="script.js?v=reveal-6"></script>
+  <script src="script.js?v=reveal-10"></script>
 </body>
 </html>
