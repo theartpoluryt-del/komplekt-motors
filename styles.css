@@ -864,9 +864,56 @@ h1, h2, h3, p { margin-top: 0; }
   cursor: pointer;
 }
 
-.reveal {
+.reveal,
+.reveal-item {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity .72s cubic-bezier(.22, 1, .36, 1),
+    transform .72s cubic-bezier(.22, 1, .36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible,
+.reveal-item.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.hero .reveal-item {
+  transform: translateY(18px);
+}
+
+.product-card.reveal-item,
+.cert-card.reveal-item {
+  transform: translateY(24px) scale(.985);
+}
+
+.product-card.reveal-item.is-visible,
+.cert-card.reveal-item.is-visible {
+  transform: translateY(0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .001ms !important;
+  }
+
+  .reveal,
+  .reveal-item,
+  .product-card.reveal-item,
+  .cert-card.reveal-item {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @media (max-width: 1180px) {

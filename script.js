@@ -1097,13 +1097,14 @@ const certGrid = document.querySelector("#certGrid");
 
 function renderCertificates() {
   certGrid.innerHTML = brands.map((brand) => `
-    <article class="cert-card" role="button" tabindex="0" data-cert-brand="${brand}" aria-label="Открыть сертификаты ${brand}">
+    <article class="cert-card reveal-item" role="button" tabindex="0" data-cert-brand="${brand}" aria-label="Открыть сертификаты ${brand}">
       <span class="cert-brand">${brand}</span>
       <h3>${brand}</h3>
       <p>Открыть сертификаты, паспорта качества, декларации и подтверждающие материалы бренда.</p>
       <button class="cert-button" type="button" data-cert-brand="${brand}">Смотреть документы</button>
     </article>
   `).join("");
+  applyReveal(certGrid);
 }
 
 function renderTabs() {
@@ -1137,16 +1138,17 @@ function renderProducts() {
 
   if (filtered.length === 0) {
     productGrid.innerHTML = `
-      <div class="empty-state">
+      <div class="empty-state reveal-item">
         <h3>${activeBrand}</h3>
         <p>В выбранном типе пока нет товаров. Попробуйте другой тип смазочного материала или очистите поиск.</p>
       </div>
     `;
+    applyReveal(productGrid);
     return;
   }
 
   productGrid.innerHTML = filtered.map((product) => `
-    <article class="product-card" tabindex="0" role="button" data-product-id="${products.indexOf(product)}" aria-label="Подробнее: ${product.name}">
+    <article class="product-card reveal-item" tabindex="0" role="button" data-product-id="${products.indexOf(product)}" aria-label="Подробнее: ${product.name}">
       <figure>
         <img src="${product.image}" alt="${product.name}" loading="lazy">
       </figure>
@@ -1161,6 +1163,7 @@ function renderProducts() {
       </div>
     </article>
   `).join("");
+  applyReveal(productGrid);
 }
 
 function inferViscosity(name) {
@@ -1443,6 +1446,33 @@ const dialog = document.querySelector("#feedbackDialog");
 const form = document.querySelector("#feedbackForm");
 const note = document.querySelector("#formNote");
 const productDialog = document.querySelector("#productDialog");
+let revealObserver = null;
+
+function applyReveal(root = document) {
+  const items = [...root.querySelectorAll(".reveal, .reveal-item:not(.is-visible)")];
+  if (!items.length) return;
+
+  items.forEach((item, index) => {
+    item.style.setProperty("--reveal-delay", `${Math.min(index % 8, 7) * 55}ms`);
+  });
+
+  if (!("IntersectionObserver" in window)) {
+    items.forEach((item) => item.classList.add("is-visible"));
+    return;
+  }
+
+  if (!revealObserver) {
+    revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.14, rootMargin: "0px 0px -8% 0px" });
+  }
+
+  items.forEach((item) => revealObserver.observe(item));
+}
 
 document.querySelectorAll("[data-open-feedback]").forEach((button) => {
   button.addEventListener("click", () => {
@@ -1475,21 +1505,7 @@ renderCertificates();
 renderTabs();
 renderTypeTabs();
 renderProducts();
-
-const revealItems = document.querySelectorAll(".reveal");
-if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add("is-visible");
-      observer.unobserve(entry.target);
-    });
-  }, { threshold: 0.12 });
-
-  revealItems.forEach((item) => observer.observe(item));
-} else {
-  revealItems.forEach((item) => item.classList.add("is-visible"));
-}
+applyReveal();
 
 if (window.location.hash) {
   window.setTimeout(() => {
