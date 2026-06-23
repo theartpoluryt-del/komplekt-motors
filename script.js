@@ -1096,8 +1096,8 @@ const searchInput = document.querySelector("#searchInput");
 const certGrid = document.querySelector("#certGrid");
 
 function renderCertificates() {
-  certGrid.innerHTML = brands.map((brand) => `
-    <article class="cert-card reveal-item" role="button" tabindex="0" data-cert-brand="${brand}" aria-label="Открыть сертификаты ${brand}">
+  certGrid.innerHTML = brands.map((brand, index) => `
+    <article class="cert-card reveal-item" role="button" tabindex="0" data-cert-brand="${brand}" data-reveal-index="${index}" aria-label="Открыть сертификаты ${brand}">
       <span class="cert-brand">${brand}</span>
       <h3>${brand}</h3>
       <p>Открыть сертификаты, паспорта качества, декларации и подтверждающие материалы бренда.</p>
@@ -1147,8 +1147,8 @@ function renderProducts() {
     return;
   }
 
-  productGrid.innerHTML = filtered.map((product) => `
-    <article class="product-card reveal-item" tabindex="0" role="button" data-product-id="${products.indexOf(product)}" aria-label="Подробнее: ${product.name}">
+  productGrid.innerHTML = filtered.map((product, index) => `
+    <article class="product-card reveal-item" tabindex="0" role="button" data-product-id="${products.indexOf(product)}" data-reveal-index="${index}" aria-label="Подробнее: ${product.name}">
       <figure>
         <img src="${product.image}" alt="${product.name}" loading="lazy">
       </figure>
@@ -1460,7 +1460,9 @@ function applyReveal(root = document) {
   }
 
   items.forEach((item, index) => {
-    item.style.setProperty("--reveal-delay", `${Math.min(index % 8, 7) * 55}ms`);
+    const cardIndex = Number(item.dataset.revealIndex);
+    const delayIndex = Number.isFinite(cardIndex) ? cardIndex % 4 : Math.min(index, 5);
+    item.style.setProperty("--reveal-delay", `${delayIndex * 70}ms`);
   });
 
   if (!("IntersectionObserver" in window)) {
@@ -1475,12 +1477,17 @@ function applyReveal(root = document) {
         entry.target.classList.add("is-visible");
         revealObserver.unobserve(entry.target);
       });
-    }, { threshold: 0.14, rootMargin: "0px 0px -8% 0px" });
+    }, { threshold: 0.05, rootMargin: "0px 0px -6% 0px" });
   }
 
-  items.forEach((item) => {
-    revealObserver.observe(item);
-    window.setTimeout(() => item.classList.add("is-visible"), 900);
+  items.forEach((item) => revealObserver.observe(item));
+  window.requestAnimationFrame(() => {
+    items.forEach((item) => {
+      const rect = item.getBoundingClientRect();
+      if (rect.top > window.innerHeight * 0.94) return;
+      item.classList.add("is-visible");
+      revealObserver.unobserve(item);
+    });
   });
 }
 

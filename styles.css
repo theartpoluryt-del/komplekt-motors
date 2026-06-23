@@ -894,6 +894,7 @@ body.reveal-ready .hero .reveal-item {
 body.reveal-ready .product-card.reveal-item,
 body.reveal-ready .cert-card.reveal-item {
   transform: translateY(24px) scale(.985);
+  transition-duration: .56s;
 }
 
 body.reveal-ready .product-card.reveal-item.is-visible,
