@@ -1461,9 +1461,10 @@ function applyReveal(root = document) {
 
   items.forEach((item, index) => {
     const cardIndex = Number(item.dataset.revealIndex);
-    const isGridItem = Boolean(item.closest(".product-grid, .cert-grid"));
+    const isProductCard = Boolean(item.closest(".product-grid"));
+    const isCertCard = Boolean(item.closest(".cert-grid"));
     const delayIndex = Number.isFinite(cardIndex)
-      ? (isGridItem ? cardIndex % 4 : Math.min(cardIndex, 12))
+      ? (isProductCard ? cardIndex % 4 : (isCertCard ? cardIndex % 5 : Math.min(cardIndex, 12)))
       : Math.min(index, 5);
     item.style.setProperty("--reveal-delay", `${delayIndex * 65}ms`);
   });
