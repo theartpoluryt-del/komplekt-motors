@@ -1,0 +1,5 @@
+2026/06/23-22:10:19.378 a578 Creating DB C:\Users\artpo\Documents\Codex\2026-06-23\y\outputs\edge-profile-hero2\Default\EdgeCoupons/coupons_data.db since it was missing.
+2026/06/23-22:10:19.408 a578 Reusing MANIFEST C:\Users\artpo\Documents\Codex\2026-06-23\y\outputs\edge-profile-hero2\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
+2026/06/23-22:10:20.594 6d64 Level-0 table #5: started
+2026/06/23-22:10:20.598 6d64 Level-0 table #5: 682681 bytes OK
+2026/06/23-22:10:20.600 6d64 Delete type=0 #3

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 620" fill="none">
+  <defs>
+    <linearGradient id="oilA" x1="55" y1="36" x2="1240" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFB000" stop-opacity=".12"/>
+      <stop offset=".42" stop-color="#F27A00" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#D84A00" stop-opacity=".08"/>
+    </linearGradient>
+    <linearGradient id="oilB" x1="1260" y1="90" x2="310" y2="580" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF9C1A" stop-opacity=".32"/>
+      <stop offset=".55" stop-color="#E86400" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#FFB32C" stop-opacity=".04"/>
+    </linearGradient>
+    <filter id="soften" x="-80" y="-80" width="1560" height="780" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+  <g filter="url(#soften)">
+    <path d="M-72 431C151 332 240 224 426 239C603 253 650 385 813 383C1013 380 1082 178 1475 107" stroke="url(#oilA)" stroke-width="84" stroke-linecap="round"/>
+    <path d="M-42 514C177 392 330 363 518 407C701 449 807 528 1013 468C1177 420 1244 297 1462 259" stroke="url(#oilB)" stroke-width="42" stroke-linecap="round"/>
+    <path d="M985 86C929 124 913 196 961 238C1007 278 1083 254 1105 196C1129 132 1050 43 985 86Z" fill="#F47B00" fill-opacity=".18"/>
+    <path d="M191 117C147 151 136 210 174 243C211 276 273 257 291 210C312 157 243 78 191 117Z" fill="#FFA21D" fill-opacity=".11"/>
+  </g>
+  <path d="M160 481C354 390 451 368 617 420C791 475 944 496 1180 356" stroke="#FF8A00" stroke-opacity=".14" stroke-width="3" stroke-linecap="round"/>
+  <path d="M1030 164C1146 134 1230 111 1346 105" stroke="#FFB12D" stroke-opacity=".18" stroke-width="2" stroke-linecap="round"/>
+</svg>
