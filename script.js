@@ -1447,10 +1447,17 @@ const form = document.querySelector("#feedbackForm");
 const note = document.querySelector("#formNote");
 const productDialog = document.querySelector("#productDialog");
 let revealObserver = null;
+const revealEnabled = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+if (revealEnabled) document.body.classList.add("reveal-ready");
 
 function applyReveal(root = document) {
   const items = [...root.querySelectorAll(".reveal, .reveal-item:not(.is-visible)")];
   if (!items.length) return;
+
+  if (!revealEnabled) {
+    items.forEach((item) => item.classList.add("is-visible"));
+    return;
+  }
 
   items.forEach((item, index) => {
     item.style.setProperty("--reveal-delay", `${Math.min(index % 8, 7) * 55}ms`);
@@ -1471,7 +1478,10 @@ function applyReveal(root = document) {
     }, { threshold: 0.14, rootMargin: "0px 0px -8% 0px" });
   }
 
-  items.forEach((item) => revealObserver.observe(item));
+  items.forEach((item) => {
+    revealObserver.observe(item);
+    window.setTimeout(() => item.classList.add("is-visible"), 900);
+  });
 }
 
 document.querySelectorAll("[data-open-feedback]").forEach((button) => {
