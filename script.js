@@ -1042,8 +1042,8 @@ function normalizeProductName(value) {
   return String(value)
     .toLowerCase()
     .replace(/ё/g, "е")
-    .replace(/[^a-zа-я0-9]+/gi, " ")
-    .replace(/\b(масло|моторное|трансмиссионное|гидравлическое|синтетическое|минеральное|полусинтетическое|литр|литра|л|repsol|репсол)\b/g, " ")
+    .replace(/[^\p{L}0-9]+/gu, " ")
+    .replace(/\b(repsol)\b/gu, " ")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -1172,7 +1172,7 @@ function inferViscosity(name) {
 }
 
 function inferPackage(name) {
-  const match = name.match(/\b\d+\s?л\b/i);
+  const match = name.match(/\b\d+(?:[.,]\d+)?\s?(?:л|литр|литра|литров)\b/i);
   return match ? match[0].replace(/\s+/g, " ") : "Фасовка по запросу";
 }
 
@@ -1181,7 +1181,7 @@ function productSpecificSpecs(product) {
   if (name.includes("50700") || name.includes("50400")) return ["VW 504.00 / 507.00", "ACEA C3", "Для современных двигателей с увеличенными интервалами обслуживания"];
   if (name.includes("MASTER ECO F")) return ["ACEA C2", "FORD WSS-M2C950-A", "Подходит для двигателей Ford, требующих данную спецификацию"];
   if (name.includes("LEADER NEO")) return ["API SN-RC", "ILSAC GF-5", "Энергосберегающая линейка для бензиновых двигателей"];
-  if (name.includes("A5/B5")) return ["ACEA A5/B5", "Для двигателей, где требуется сниженная HTHS-вязкость", "Проверять совместимость по руководству автомобиля"];
+  if (name.includes("A5/B5")) return ["ACEA A5/B5", "Для двигателей, где требуется сниженная HTHS-вязкость", "Совместимость проверяется по руководству автомобиля"];
   if (name.includes("A3/B4")) return ["ACEA A3/B4", "API SN/CF по линейке", "Для бензиновых и дизельных двигателей без DPF"];
   if (name.includes("C3")) return ["ACEA C3", "Mid SAPS", "Для систем нейтрализации выхлопа при наличии допуска производителя"];
   if (name.includes("C2")) return ["ACEA C2", "Fuel Economy", "Для двигателей с требованиями к малозольным маслам"];
@@ -1194,7 +1194,6 @@ function productSpecificSpecs(product) {
   if (name.includes("ANTICONGELANTE")) return ["Концентрат на основе этиленгликоля", "OAT/органическая технология для Organic-позиции", "Разбавление водой по требуемой температуре замерзания"];
   return [];
 }
-
 function getProductDetails(product) {
   const details = categoryDetails[product.category] || categoryDetails.elite;
   const specific = productSpecificSpecs(product);
@@ -1211,108 +1210,34 @@ function openProduct(productId) {
   const product = products[Number(productId)];
   if (!product) return;
 
-  const productWindow = window.open("", "_blank");
-  if (!productWindow) return;
-
   const category = categoryLabels[product.category] || "Смазочные материалы";
   const details = getProductDetails(product);
-  const safe = (value) => String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;");
-  const list = (items) => items.map((item) => `<li>${safe(item)}</li>`).join("");
+  const listItems = (items) => items.map((item) => `<li>${item}</li>`).join("");
 
-  productWindow.document.write(`
-    <!doctype html>
-    <html lang="ru">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>${safe(product.name)} | Комплект-Моторс</title>
-      <style>
-        :root { --ink:#111111; --muted:#666; --line:#e2e2e2; --red:#e1251b; --amber:#c79222; --steel:#2c2c2c; --radius:18px; }
-        * { box-sizing: border-box; }
-        body { margin:0; color:var(--ink); background:#f7f7f7; font-family:Arial,"Helvetica Neue",sans-serif; }
-        header { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:18px clamp(18px,4vw,56px); color:#fff; background:#0f0f0f; border-bottom:1px solid rgba(255,255,255,.12); }
-        .brand { font-size:13px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; }
-        main { display:grid; grid-template-columns:minmax(300px,.75fr) minmax(420px,1.25fr); max-width:1240px; margin:42px auto; border:1px solid var(--line); border-radius:var(--radius); background:#fff; overflow:hidden; box-shadow:0 18px 44px rgba(0,0,0,.1); }
-        figure { display:grid; place-items:center; margin:0; padding:42px; background:#f4f4f4; border-right:1px solid var(--line); }
-        img { max-width:100%; max-height:500px; object-fit:contain; border-radius:14px; }
-        section { padding:46px; }
-        .eyebrow { margin:0 0 14px; color:var(--red); font-size:11px; font-weight:900; letter-spacing:.12em; text-transform:uppercase; }
-        h1 { margin:0 0 18px; font-size:clamp(30px,4vw,46px); line-height:1.12; letter-spacing:.04em; text-transform:uppercase; }
-        h2 { margin:0 0 12px; font-size:16px; letter-spacing:.08em; text-transform:uppercase; }
-        p { color:var(--muted); line-height:1.65; font-size:16px; }
-        .meta { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 20px; }
-        .meta span { padding:9px 12px; border-radius:999px; background:#f0f0f0; color:var(--steel); font-weight:900; font-size:12px; }
-        .detail-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin:24px 0; }
-        .detail-box { padding:18px; border:1px solid var(--line); border-radius:var(--radius); background:#fbfbfb; }
-        .detail-box strong { display:block; margin-bottom:7px; color:var(--ink); font-size:12px; letter-spacing:.1em; text-transform:uppercase; }
-        .detail-box span { color:var(--muted); line-height:1.55; }
-        .info-sections { display:grid; gap:16px; margin-top:22px; }
-        .info-block { padding:20px; border:1px solid var(--line); border-radius:var(--radius); }
-        ul { margin:0; padding-left:18px; color:var(--muted); line-height:1.7; }
-        .note { margin:18px 0 0; padding:16px; border-radius:var(--radius); background:#fff7e6; color:#6d4a00; font-size:14px; }
-        .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
-        a, button { min-height:44px; display:inline-flex; align-items:center; justify-content:center; padding:12px 18px; border-radius:12px; font-weight:900; text-decoration:none; }
-        a { color:#fff; background:var(--red); }
-        .ozon-detail-link { background:#005bff; }
-        .ozon-detail-link:hover { background:#0048c9; }
-        button { border:1px solid var(--line); background:#fff; color:var(--steel); cursor:pointer; }
-        header button { color:#fff; border-color:rgba(255,255,255,.42); background:transparent; border-radius:12px; }
-        @media (max-width:760px) {
-          main { grid-template-columns:1fr; margin:0; border-radius:0; }
-          figure { min-height:300px; border-right:0; border-bottom:1px solid var(--line); }
-          section { padding:28px; }
-          .detail-grid { grid-template-columns:1fr; }
-        }
-      </style>
-    </head>
-    <body>
-      <header>
-        <div class="brand">Комплект-Моторс</div>
-        <button onclick="window.close()">Закрыть вкладку</button>
-      </header>
-      <main>
-        <figure><img src="${safe(product.image)}" alt="${safe(product.name)}"></figure>
-        <section>
-          <p class="eyebrow">${safe(product.brand)}</p>
-          <h1>${safe(product.name)}</h1>
-          <div class="meta"><span>${safe(category)}</span><span>${safe(details.packageSize)}</span><span>Цена по запросу</span></div>
-          <p>${safe(product.description)}</p>
-          <div class="detail-grid">
-            <div class="detail-box"><strong>Вязкость / тип</strong><span>${safe(details.viscosity)}</span></div>
-            <div class="detail-box"><strong>Фасовка</strong><span>${safe(details.packageSize)}. Возможна продажа на разлив по запросу.</span></div>
-          </div>
-          <div class="info-sections">
-            <div class="info-block">
-              <h2>Применение</h2>
-              <p>${safe(details.use)}</p>
-            </div>
-            <div class="info-block">
-              <h2>Допуски и спецификации</h2>
-              <ul>${list(details.specs)}</ul>
-            </div>
-            <div class="info-block">
-              <h2>Преимущества</h2>
-              <ul>${list(details.benefits)}</ul>
-            </div>
-          </div>
-          <p class="note">Точные допуски, совместимость с техникой и интервал замены подбираются по руководству производителя, VIN/модели оборудования и паспорту качества партии.</p>
-          <div class="actions">
-            <a href="mailto:komplekt-motors@mail.ru?subject=${encodeURIComponent(`Заявка: ${product.name}`)}">Оставить заявку</a>
-            ${product.ozonUrl ? `<a class="ozon-detail-link" href="${safe(product.ozonUrl)}" target="_blank" rel="noreferrer">Ozon</a>` : ""}
-            <button onclick="history.length > 1 ? history.back() : window.close()">Назад</button>
-          </div>
-        </section>
-      </main>
-    </body>
-    </html>
-  `);
-  productWindow.document.close();
+  document.querySelector("#productDialogImage").src = product.image;
+  document.querySelector("#productDialogImage").alt = product.name;
+  document.querySelector("#productDialogBrand").textContent = product.brand;
+  document.querySelector("#productDialogTitle").textContent = product.name;
+  document.querySelector("#productDialogCategory").textContent = category;
+  document.querySelector("#productDialogDescription").textContent = product.description;
+  document.querySelector("#productDialogViscosity").textContent = details.viscosity;
+  document.querySelector("#productDialogPackage").textContent = `${details.packageSize}. Возможна продажа на разлив по запросу.`;
+  document.querySelector("#productDialogUse").textContent = details.use;
+  document.querySelector("#productDialogSpecs").innerHTML = listItems(details.specs);
+  document.querySelector("#productDialogBenefits").innerHTML = listItems(details.benefits);
+
+  const ozonLink = document.querySelector("#productDialogOzon");
+  if (product.ozonUrl) {
+    ozonLink.href = product.ozonUrl;
+    ozonLink.classList.add("is-visible");
+  } else {
+    ozonLink.removeAttribute("href");
+    ozonLink.classList.remove("is-visible");
+  }
+
+  lockPageScroll();
+  productDialog.showModal();
 }
-
 function openCertificates(brand) {
   const docs = brandCertificates[brand] || [];
   const certWindow = window.open("", "_blank");
@@ -1450,6 +1375,14 @@ let revealObserver = null;
 const revealEnabled = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 if (revealEnabled) document.body.classList.add("reveal-ready");
 
+function lockPageScroll() {
+  document.body.classList.add("modal-locked");
+}
+
+function unlockPageScroll() {
+  document.body.classList.remove("modal-locked");
+}
+
 function applyReveal(root = document) {
   const items = [...root.querySelectorAll(".reveal, .reveal-item:not(.is-visible)")];
   if (!items.length) return;
@@ -1510,6 +1443,13 @@ document.querySelector("#productDialogClose").addEventListener("click", () => {
 document.querySelector("#productDialogBack").addEventListener("click", () => {
   productDialog.close();
 });
+
+productDialog.addEventListener("click", (event) => {
+  if (event.target !== productDialog) return;
+  productDialog.close();
+});
+
+productDialog.addEventListener("close", unlockPageScroll);
 
 form.addEventListener("submit", (event) => {
   const submitter = event.submitter;

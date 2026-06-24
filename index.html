@@ -6,7 +6,7 @@
   <title>Комплект-Моторс | Смазочные материалы для моторов</title>
   <meta name="description" content="Комплект-Моторс в Челябинске: моторные, трансмиссионные, гидравлические масла, антифризы и смазочные материалы для техники.">
   <link rel="preconnect" href="https://kmo74.ru">
-  <link rel="stylesheet" href="styles.css?v=reveal-11">
+  <link rel="stylesheet" href="styles.css?v=modal-6">
 </head>
 <body>
   <header class="site-header">
@@ -139,14 +139,40 @@
           <span>Цена по запросу</span>
         </div>
         <p id="productDialogDescription"></p>
+        <div class="product-detail-grid">
+          <div>
+            <strong>Вязкость / тип</strong>
+            <span id="productDialogViscosity"></span>
+          </div>
+          <div>
+            <strong>Фасовка</strong>
+            <span id="productDialogPackage"></span>
+          </div>
+        </div>
+        <div class="product-info-blocks">
+          <section>
+            <h3>Применение</h3>
+            <p id="productDialogUse"></p>
+          </section>
+          <section>
+            <h3>Допуски и спецификации</h3>
+            <ul id="productDialogSpecs"></ul>
+          </section>
+          <section>
+            <h3>Преимущества</h3>
+            <ul id="productDialogBenefits"></ul>
+          </section>
+        </div>
+        <p class="product-detail-note">Точные допуски и совместимость подбираются по руководству производителя, VIN/модели оборудования и паспорту качества партии.</p>
         <div class="product-detail-actions">
           <button class="primary-button" data-open-feedback>Оставить заявку</button>
+          <a class="ozon-detail-button" id="productDialogOzon" href="#" target="_blank" rel="noreferrer">Ozon</a>
           <button class="secondary-detail-button" id="productDialogBack">Вернуться к каталогу</button>
         </div>
       </div>
     </article>
   </dialog>
 
-  <script src="script.js?v=reveal-11"></script>
+  <script src="script.js?v=modal-6"></script>
 </body>
 </html>
