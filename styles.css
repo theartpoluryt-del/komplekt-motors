@@ -2,8 +2,8 @@
   --ink: #111111;
   --soft-ink: #2a2a2a;
   --muted: #777777;
-  --line: #e5e5e5;
-  --bg: #fafafa;
+  --line: #dedbd5;
+  --bg: #f1f2f3;
   --panel: #ffffff;
   --black: #2f2f2f;
   --red: #e1251b;
@@ -136,11 +136,13 @@ h1, h2, h3, p { margin-top: 0; }
   padding: 94px 20px 84px;
   color: var(--ink);
   text-align: center;
+  border: 1px solid #dfe3e8;
   border-radius: 24px;
+  box-shadow: 0 24px 70px rgba(24, 31, 40, .1);
   background:
-    linear-gradient(rgba(255, 255, 255, .82), rgba(255, 255, 255, .9)),
-    repeating-linear-gradient(90deg, transparent 0 98px, rgba(0, 0, 0, .035) 98px 99px),
-    linear-gradient(135deg, #fffaf1 0%, #f4f4f4 100%);
+    linear-gradient(rgba(247, 249, 251, .78), rgba(243, 246, 249, .9)),
+    repeating-linear-gradient(90deg, transparent 0 98px, rgba(67, 78, 92, .045) 98px 99px),
+    linear-gradient(135deg, #f8fafc 0%, #eef2f6 52%, #f6f7f8 100%);
   overflow: hidden;
 }
 
@@ -150,8 +152,8 @@ h1, h2, h3, p { margin-top: 0; }
   inset: 0;
   background:
     url("assets/oil-splash-chroma.png") center 56% / min(96%, 1680px) auto no-repeat;
-  filter: blur(4px) saturate(1.16) contrast(1.06);
-  opacity: .42;
+  filter: blur(4px) saturate(.92) contrast(1.02);
+  opacity: .4;
   pointer-events: none;
 }
 
@@ -160,9 +162,9 @@ h1, h2, h3, p { margin-top: 0; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, .08), rgba(255, 255, 255, .62) 68%),
-    linear-gradient(90deg, rgba(255, 255, 255, .76), rgba(255, 255, 255, .2) 46%, rgba(255, 255, 255, .82)),
-    linear-gradient(180deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .58));
+    radial-gradient(circle at 50% 48%, rgba(255, 255, 255, .1), rgba(240, 244, 248, .44) 70%),
+    linear-gradient(90deg, rgba(248, 250, 252, .7), rgba(255, 255, 255, .16) 46%, rgba(246, 248, 250, .78)),
+    linear-gradient(180deg, rgba(255, 255, 255, .22), rgba(232, 237, 243, .48));
   pointer-events: none;
 }
 
