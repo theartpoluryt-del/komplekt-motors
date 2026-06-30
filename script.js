@@ -10,6 +10,8 @@ const brands = [
   "Pilots"
 ];
 
+const allBrandsLabel = "\u0412\u0441\u0435 \u0431\u0440\u0435\u043d\u0434\u044b";
+
 const categoryLabels = {
   all: "Все типы",
   diesel: "Моторные масла для коммерческого транспорта",
@@ -82,6 +84,12 @@ const brandCertificates = {
       "note": "Подтверждает статус ООО МК «КМ» как официального партнера Alleya Group по продукции Lopal."
     },
     {
+      "title": "Сертификат Lopal",
+      "type": "Сертификат бренда",
+      "url": "assets/certificates/lopal-certificate-2026.jpg",
+      "note": "Дополнительный сертификат Lopal для подтверждения качества и оригинальности продукции."
+    },
+    {
       "title": "Декларация соответствия Lopal: трансмиссионные масла",
       "type": "Декларация соответствия",
       "url": "assets/certificates/lopal-declaration-transmission-oils-2026.pdf",
@@ -114,6 +122,12 @@ const brandCertificates = {
       "type": "Дилерский сертификат",
       "url": "assets/certificates/spectrol-premium-official-dealer.jpg",
       "note": "Подтверждает право реализации оригинальной сертифицированной продукции Spectrol Premium."
+    },
+    {
+      "title": "Страховой сертификат Spectrol Premium",
+      "type": "Страховой сертификат",
+      "url": "assets/certificates/spectrol-premium-insurance-certificate.jpg",
+      "note": "Страховой сертификат Spectrol Premium для подтверждающих материалов бренда."
     }
   ],
   "Nano Grease": [
@@ -1010,7 +1024,7 @@ const ozonCatalogProducts = [
     "brand": "Luxe",
     "category": "hidro",
     "description": "Гидравлическое масло из каталога Ozon Комплект-Моторс. Вязкость, допуски и применимость уточняются в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/luxe/hydros-hvlp-46-20l.webp",
     "ozonUrl": "https://www.ozon.ru/product/maslo-gidravlicheskoe-luxe-hydros-hvlp-46-20l-3195403636/",
     "source": "ozon"
   },
@@ -1037,7 +1051,7 @@ const ozonCatalogProducts = [
     "brand": "Luxe",
     "category": "transmission",
     "description": "Трансмиссионное масло из каталога Ozon Комплект-Моторс. Совместимость с узлом и допуски уточняются в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/luxe/transsol-x-80w90-gl45-20l.webp",
     "ozonUrl": "https://www.ozon.ru/product/maslo-transmissionnoe-mineralnoe-luxe-transsol-x-80w90-gl-4-5-20l-4668499940/",
     "source": "ozon"
   },
@@ -1073,7 +1087,7 @@ const ozonCatalogProducts = [
     "brand": "Repsol",
     "category": "transmission",
     "description": "Трансмиссионное масло из каталога Ozon Комплект-Моторс. Совместимость с узлом и допуски уточняются в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/automator-atf-vi-1.png",
     "ozonUrl": "https://www.ozon.ru/product/maslo-transmissionnoe-sinteticheskoe-repsol-automator-atf-6-1-litr-1846604168/",
     "source": "ozon"
   },
@@ -1082,7 +1096,7 @@ const ozonCatalogProducts = [
     "brand": "Repsol",
     "category": "transmission",
     "description": "Трансмиссионное масло из каталога Ozon Комплект-Моторс. Совместимость с узлом и допуски уточняются в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/automator-atf-vi.png",
     "ozonUrl": "https://www.ozon.ru/product/maslo-transmissionnoe-sinteticheskoe-repsol-automator-atf-6-20l-2789903171/",
     "source": "ozon"
   },
@@ -1127,7 +1141,7 @@ const ozonCatalogProducts = [
     "brand": "Repsol",
     "category": "transmission",
     "description": "Трансмиссионное масло из каталога Ozon Комплект-Моторс. Совместимость с узлом и допуски уточняются в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "https://kmo74.ru/uploads/product/000/62/6d3c1a392108ea89097e8edf29d26563_2024-02-02_10-49-54.jpeg",
     "ozonUrl": "https://www.ozon.ru/product/maslo-transmissionnoe-universalnoe-sinteticheskoe-repsol-cartago-fe-ld-75w90-20l-1545725119/",
     "source": "ozon"
   },
@@ -1181,7 +1195,7 @@ const ozonCatalogProducts = [
     "brand": "Repsol",
     "category": "transmission",
     "description": "Трансмиссионное масло из каталога Ozon Комплект-Моторс. Совместимость с узлом и допуски уточняются в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/automator-cvt.png",
     "ozonUrl": "https://www.ozon.ru/product/maslo-transmissionnoe-repsol-automator-cvt-1-litr-2141934120/",
     "source": "ozon"
   },
@@ -1262,7 +1276,7 @@ const ozonCatalogProducts = [
     "brand": "SpecLub",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/speclub/unigrease-blue-ep2-18kg.png",
     "ozonUrl": "https://www.ozon.ru/product/smazka-vysokotemperaturnaya-sinyaya-speclub-unigrease-blue-ep-2-18kg-2867619110/",
     "source": "ozon"
   },
@@ -1271,7 +1285,7 @@ const ozonCatalogProducts = [
     "brand": "Nano Grease",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/nano-grease/multipurpose-ep-nano-gold-18kg.webp",
     "ozonUrl": "https://www.ozon.ru/product/smazka-protivozadirnaya-nano-grease-multipurpose-ep-nano-gold-18-kg-3137764111/",
     "source": "ozon"
   },
@@ -1280,7 +1294,7 @@ const ozonCatalogProducts = [
     "brand": "Repsol",
     "category": "transmission",
     "description": "Трансмиссионное масло из каталога Ozon Комплект-Моторс. Совместимость с узлом и допуски уточняются в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "https://kmo74.ru/uploads/product/000/73/bf1c627e3fdd83bab1dfe468699ee19c_2024-02-02_10-39-49.webp",
     "ozonUrl": "https://www.ozon.ru/product/universalnoe-transmissionnoe-maslo-repsol-farmer-u-t-t-o-20l-2124235143/",
     "source": "ozon"
   },
@@ -1289,7 +1303,7 @@ const ozonCatalogProducts = [
     "brand": "Euronol",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/euronol-jp-formula-0w20-1.png",
     "ozonUrl": "https://www.ozon.ru/product/euronol-0w-20-maslo-motornoe-sinteticheskoe-1-l-2201851915/",
     "source": "ozon"
   },
@@ -1298,7 +1312,7 @@ const ozonCatalogProducts = [
     "brand": "Euronol",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/euronol-jp-formula-0w20.png",
     "ozonUrl": "https://www.ozon.ru/product/euronol-0w-20-maslo-motornoe-sinteticheskoe-4-l-2201827381/",
     "source": "ozon"
   },
@@ -1307,7 +1321,7 @@ const ozonCatalogProducts = [
     "brand": "Euronol",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/euronol-start-formula-10w40.png",
     "ozonUrl": "https://www.ozon.ru/product/euronol-10w-40-maslo-motornoe-4-l-1801801660/",
     "source": "ozon"
   },
@@ -1316,7 +1330,7 @@ const ozonCatalogProducts = [
     "brand": "Euronol",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/euronol-start-formula-10w40.png",
     "ozonUrl": "https://www.ozon.ru/product/euronol-10w-40-maslo-motornoe-polusinteticheskoe-20-l-1921968659/",
     "source": "ozon"
   },
@@ -1325,7 +1339,7 @@ const ozonCatalogProducts = [
     "brand": "Euronol",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/euronol-start-formula-10w40-1.png",
     "ozonUrl": "https://www.ozon.ru/product/euronol-10w-40-maslo-motornoe-sinteticheskoe-1-l-1801818401/",
     "source": "ozon"
   },
@@ -1334,7 +1348,7 @@ const ozonCatalogProducts = [
     "brand": "Euronol",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/euronol-start-formula-10w40.png",
     "ozonUrl": "https://www.ozon.ru/product/euronol-10w-40-maslo-motornoe-sinteticheskoe-4-l-1801723243/",
     "source": "ozon"
   },
@@ -1343,7 +1357,7 @@ const ozonCatalogProducts = [
     "brand": "Euronol",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/euronol-fuel-economy-5w30-1.png",
     "ozonUrl": "https://www.ozon.ru/product/euronol-5w-30-maslo-motornoe-sinteticheskoe-1-l-1801790386/",
     "source": "ozon"
   },
@@ -1352,7 +1366,7 @@ const ozonCatalogProducts = [
     "brand": "Euronol",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/euronol-fuel-economy-5w30.png",
     "ozonUrl": "https://www.ozon.ru/product/euronol-5w-30-maslo-motornoe-sinteticheskoe-4-l-1801773211/",
     "source": "ozon"
   },
@@ -1361,7 +1375,7 @@ const ozonCatalogProducts = [
     "brand": "Euronol",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/euronol-sport-formula-5w40-1.png",
     "ozonUrl": "https://www.ozon.ru/product/euronol-5w-40-maslo-motornoe-sinteticheskoe-1-l-1801739578/",
     "source": "ozon"
   },
@@ -1370,7 +1384,7 @@ const ozonCatalogProducts = [
     "brand": "Euronol",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/euronol-sport-formula-5w40.png",
     "ozonUrl": "https://www.ozon.ru/product/euronol-5w-40-maslo-motornoe-sinteticheskoe-4-l-1801717482/",
     "source": "ozon"
   },
@@ -1388,7 +1402,7 @@ const ozonCatalogProducts = [
     "brand": "Luxe",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/luxe/x-pert-eco-mode-10w40-20l.webp",
     "ozonUrl": "https://www.ozon.ru/product/luxe-luxe-10w-40-maslo-motornoe-polusinteticheskoe-20-l-3195275982/",
     "source": "ozon"
   },
@@ -1397,7 +1411,7 @@ const ozonCatalogProducts = [
     "brand": "Repsol",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/leader-neo-0w20.png",
     "ozonUrl": "https://www.ozon.ru/product/repsol-0w-20-maslo-motornoe-sinteticheskoe-1-l-1830645127/",
     "source": "ozon"
   },
@@ -1406,7 +1420,7 @@ const ozonCatalogProducts = [
     "brand": "Repsol",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/elite-multivalvulas-10w40-1.png",
     "ozonUrl": "https://www.ozon.ru/product/repsol-10w-40-maslo-motornoe-polusinteticheskoe-1-l-1833065224/",
     "source": "ozon"
   },
@@ -1415,7 +1429,7 @@ const ozonCatalogProducts = [
     "brand": "Repsol",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/elite-multivalvulas-10w40.png",
     "ozonUrl": "https://www.ozon.ru/product/repsol-10w-40-maslo-motornoe-polusinteticheskoe-4-l-1833042295/",
     "source": "ozon"
   },
@@ -1424,7 +1438,7 @@ const ozonCatalogProducts = [
     "brand": "Repsol",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/elite-multivalvulas-10w40-1.png",
     "ozonUrl": "https://www.ozon.ru/product/repsol-10w-40-maslo-motornoe-sinteticheskoe-1-l-4138139071/",
     "source": "ozon"
   },
@@ -1433,7 +1447,7 @@ const ozonCatalogProducts = [
     "brand": "Repsol",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/elite-multivalvulas-10w40.png",
     "ozonUrl": "https://www.ozon.ru/product/repsol-10w-40-maslo-motornoe-sinteticheskoe-4-l-1736486614/",
     "source": "ozon"
   },
@@ -1442,7 +1456,7 @@ const ozonCatalogProducts = [
     "brand": "Repsol",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/elite-evolution-c2-5w30-1.png",
     "ozonUrl": "https://www.ozon.ru/product/repsol-5w-30-maslo-motornoe-sinteticheskoe-1-l-1631225286/",
     "source": "ozon"
   },
@@ -1451,7 +1465,7 @@ const ozonCatalogProducts = [
     "brand": "Repsol",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/elite-evolution-c2-5w30.png",
     "ozonUrl": "https://www.ozon.ru/product/repsol-5w-30-maslo-motornoe-sinteticheskoe-20-l-2202103395/",
     "source": "ozon"
   },
@@ -1460,7 +1474,7 @@ const ozonCatalogProducts = [
     "brand": "Repsol",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/elite-evolution-c2-5w30.png",
     "ozonUrl": "https://www.ozon.ru/product/repsol-5w-30-maslo-motornoe-sinteticheskoe-4-l-1630453629/",
     "source": "ozon"
   },
@@ -1469,7 +1483,7 @@ const ozonCatalogProducts = [
     "brand": "Repsol",
     "category": "diesel",
     "description": "Товар из каталога Ozon Комплект-Моторс для коммерческого транспорта и дизельной техники. Подробные характеристики уточняются в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/repsol-giant-7630-10w30.png",
     "ozonUrl": "https://www.ozon.ru/product/repsol-motornoe-dizelnoe-10w-30-maslo-motornoe-sinteticheskoe-20-l-1849074368/",
     "source": "ozon"
   },
@@ -1478,7 +1492,7 @@ const ozonCatalogProducts = [
     "brand": "Repsol",
     "category": "diesel",
     "description": "Товар из каталога Ozon Комплект-Моторс для коммерческого транспорта и дизельной техники. Подробные характеристики уточняются в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/repsol-giant-9540-10w40.png",
     "ozonUrl": "https://www.ozon.ru/product/repsol-motornoe-dizelnoe-10w-40-maslo-motornoe-ns-sinteticheskoe-20-l-1498059441/",
     "source": "ozon"
   },
@@ -1487,7 +1501,7 @@ const ozonCatalogProducts = [
     "brand": "Repsol",
     "category": "diesel",
     "description": "Товар из каталога Ozon Комплект-Моторс для коммерческого транспорта и дизельной техники. Подробные характеристики уточняются в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/repsol-giant-9540-10w40.png",
     "ozonUrl": "https://www.ozon.ru/product/repsol-motornoe-dizelnoe-10w-40-maslo-motornoe-sinteticheskoe-20-l-2014180183/",
     "source": "ozon"
   },
@@ -1496,7 +1510,7 @@ const ozonCatalogProducts = [
     "brand": "Repsol",
     "category": "diesel",
     "description": "Товар из каталога Ozon Комплект-Моторс для коммерческого транспорта и дизельной техники. Подробные характеристики уточняются в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/repsol-giant-7530-15w40.png",
     "ozonUrl": "https://www.ozon.ru/product/repsol-motornoe-dizelnoe-15w-40-maslo-motornoe-mineralnoe-20-l-1498059434/",
     "source": "ozon"
   },
@@ -1505,7 +1519,7 @@ const ozonCatalogProducts = [
     "brand": "Repsol",
     "category": "diesel",
     "description": "Товар из каталога Ozon Комплект-Моторс для коммерческого транспорта и дизельной техники. Подробные характеристики уточняются в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "https://kmo74.ru/uploads/product/000/24/726_original_2023-10-10_23-20-48.jpg",
     "ozonUrl": "https://www.ozon.ru/product/repsol-motornoe-dizelnoe-5w-30-maslo-motornoe-sinteticheskoe-20-l-1498059200/",
     "source": "ozon"
   },
@@ -1514,7 +1528,7 @@ const ozonCatalogProducts = [
     "brand": "Repsol",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/elite-evolution-c2-5w30-1.png",
     "ozonUrl": "https://www.ozon.ru/product/repsol-repsol-legkovoe-5w-30-maslo-motornoe-sinteticheskoe-1-l-4191904101/",
     "source": "ozon"
   },
@@ -1523,7 +1537,7 @@ const ozonCatalogProducts = [
     "brand": "Repsol",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/elite-evolution-c2-5w30.png",
     "ozonUrl": "https://www.ozon.ru/product/repsol-repsol-legkovoe-5w-30-maslo-motornoe-sinteticheskoe-20-l-3501682119/",
     "source": "ozon"
   },
@@ -1532,7 +1546,7 @@ const ozonCatalogProducts = [
     "brand": "Repsol",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/elite-evolution-c2-5w30.png",
     "ozonUrl": "https://www.ozon.ru/product/repsol-repsol-legkovoe-5w-30-maslo-motornoe-sinteticheskoe-4-l-2621534631/",
     "source": "ozon"
   },
@@ -1541,7 +1555,7 @@ const ozonCatalogProducts = [
     "brand": "Repsol",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/elite-competicion-5w40-1.png",
     "ozonUrl": "https://www.ozon.ru/product/repsol-repsol-legkovoe-5w-40-maslo-motornoe-sinteticheskoe-1-l-4191916385/",
     "source": "ozon"
   },
@@ -1550,7 +1564,7 @@ const ozonCatalogProducts = [
     "brand": "Repsol",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/yandex-fresh/elite-competicion-5w40.png",
     "ozonUrl": "https://www.ozon.ru/product/repsol-repsol-legkovoe-5w-40-maslo-motornoe-sinteticheskoe-4-l-1554410208/",
     "source": "ozon"
   },
@@ -1649,7 +1663,7 @@ const ozonCatalogProducts = [
     "brand": "Spectrol Premium",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/spectrol-official/s9-0w20.png",
     "ozonUrl": "https://www.ozon.ru/product/spectrol-premium-0w-20-maslo-motornoe-sinteticheskoe-4-l-3563640991/",
     "source": "ozon"
   },
@@ -1658,7 +1672,7 @@ const ozonCatalogProducts = [
     "brand": "Spectrol Premium",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/spectrol-official/s9-0w30.png",
     "ozonUrl": "https://www.ozon.ru/product/spectrol-premium-0w-30-maslo-motornoe-sinteticheskoe-1-l-4191986269/",
     "source": "ozon"
   },
@@ -1667,7 +1681,7 @@ const ozonCatalogProducts = [
     "brand": "Spectrol Premium",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/spectrol-official/s9-0w30.png",
     "ozonUrl": "https://www.ozon.ru/product/spectrol-premium-0w-30-maslo-motornoe-sinteticheskoe-4-l-4191803654/",
     "source": "ozon"
   },
@@ -1676,7 +1690,7 @@ const ozonCatalogProducts = [
     "brand": "Spectrol Premium",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/spectrol-official/s7-10w40.png",
     "ozonUrl": "https://www.ozon.ru/product/spectrol-premium-10w-40-maslo-motornoe-sinteticheskoe-20-00-l-3584227099/",
     "source": "ozon"
   },
@@ -1685,7 +1699,7 @@ const ozonCatalogProducts = [
     "brand": "Spectrol Premium",
     "category": "diesel",
     "description": "Товар из каталога Ozon Комплект-Моторс для коммерческого транспорта и дизельной техники. Подробные характеристики уточняются в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/spectrol/s7000-10w40-hd-20l.png",
     "ozonUrl": "https://www.ozon.ru/product/spectrol-premium-spektrol-gruzovoe-10w-40-maslo-motornoe-polusinteticheskoe-20-l-3589406780/",
     "source": "ozon"
   },
@@ -1694,7 +1708,7 @@ const ozonCatalogProducts = [
     "brand": "Spectrol Premium",
     "category": "diesel",
     "description": "Товар из каталога Ozon Комплект-Моторс для коммерческого транспорта и дизельной техники. Подробные характеристики уточняются в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/spectrol/s7000-15w40-hd-20l.png",
     "ozonUrl": "https://www.ozon.ru/product/spectrol-premium-spektrol-gruzovoe-15w-40-maslo-motornoe-polusinteticheskoe-20-l-3589508738/",
     "source": "ozon"
   },
@@ -1703,7 +1717,7 @@ const ozonCatalogProducts = [
     "brand": "Spectrol Premium",
     "category": "diesel",
     "description": "Товар из каталога Ozon Комплект-Моторс для коммерческого транспорта и дизельной техники. Подробные характеристики уточняются в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/spectrol/s9000-5w30-uhpd-20l.png",
     "ozonUrl": "https://www.ozon.ru/product/spectrol-premium-spektrol-gruzovoe-5w-30-maslo-motornoe-sinteticheskoe-20-l-3584225683/",
     "source": "ozon"
   },
@@ -1712,7 +1726,7 @@ const ozonCatalogProducts = [
     "brand": "Spectrol Premium",
     "category": "diesel",
     "description": "Товар из каталога Ozon Комплект-Моторс для коммерческого транспорта и дизельной техники. Подробные характеристики уточняются в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/spectrol-official/s7000-5w40-hd-20l.png",
     "ozonUrl": "https://www.ozon.ru/product/spectrol-premium-spektrol-gruzovoe-5w-40-maslo-motornoe-polusinteticheskoe-20-l-3589267213/",
     "source": "ozon"
   },
@@ -1721,7 +1735,7 @@ const ozonCatalogProducts = [
     "brand": "Spectrol Premium",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/spectrol-official/asia-jp-0w20.png",
     "ozonUrl": "https://www.ozon.ru/product/spectrol-premium-spektrol-legkovoe-0w-20-maslo-motornoe-sinteticheskoe-1-l-3578804677/",
     "source": "ozon"
   },
@@ -1730,7 +1744,7 @@ const ozonCatalogProducts = [
     "brand": "Spectrol Premium",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/spectrol-official/asia-jp-0w20.png",
     "ozonUrl": "https://www.ozon.ru/product/spectrol-premium-spektrol-legkovoe-0w-20-maslo-motornoe-sinteticheskoe-4-l-3594448480/",
     "source": "ozon"
   },
@@ -1739,7 +1753,7 @@ const ozonCatalogProducts = [
     "brand": "Spectrol Premium",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/spectrol-official/s7-10w40.png",
     "ozonUrl": "https://www.ozon.ru/product/spectrol-premium-spektrol-legkovoe-10w-40-maslo-motornoe-4-l-3700008675/",
     "source": "ozon"
   },
@@ -1748,7 +1762,7 @@ const ozonCatalogProducts = [
     "brand": "Spectrol Premium",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/spectrol-official/s7-10w40.png",
     "ozonUrl": "https://www.ozon.ru/product/spectrol-premium-spektrol-legkovoe-10w-40-maslo-motornoe-sinteticheskoe-1-l-3700060037/",
     "source": "ozon"
   },
@@ -1757,7 +1771,7 @@ const ozonCatalogProducts = [
     "brand": "Spectrol Premium",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/spectrol-official/s7-5w30.png",
     "ozonUrl": "https://www.ozon.ru/product/spectrol-premium-spektrol-legkovoe-5w-30-maslo-motornoe-sinteticheskoe-1-l-3626088593/",
     "source": "ozon"
   },
@@ -1766,7 +1780,7 @@ const ozonCatalogProducts = [
     "brand": "Spectrol Premium",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/spectrol-official/s7-5w30.png",
     "ozonUrl": "https://www.ozon.ru/product/spectrol-premium-spektrol-legkovoe-5w-30-maslo-motornoe-sinteticheskoe-4-l-3626196261/",
     "source": "ozon"
   },
@@ -1775,7 +1789,7 @@ const ozonCatalogProducts = [
     "brand": "Spectrol Premium",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/spectrol-official/s7-5w40.png",
     "ozonUrl": "https://www.ozon.ru/product/spectrol-premium-spektrol-legkovoe-5w-40-maslo-motornoe-sinteticheskoe-1-l-3618222085/",
     "source": "ozon"
   },
@@ -1784,7 +1798,7 @@ const ozonCatalogProducts = [
     "brand": "Spectrol Premium",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/spectrol-official/s7-5w40.png",
     "ozonUrl": "https://www.ozon.ru/product/spectrol-premium-spektrol-legkovoe-5w-40-maslo-motornoe-sinteticheskoe-4-l-3618315194/",
     "source": "ozon"
   },
@@ -1793,7 +1807,7 @@ const ozonCatalogProducts = [
     "brand": "Spectrol Premium",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/spectrol-official/s9-5w50.png",
     "ozonUrl": "https://www.ozon.ru/product/spectrol-premium-spektrol-legkovoe-5w-50-maslo-motornoe-sinteticheskoe-1-l-3579153753/",
     "source": "ozon"
   },
@@ -1802,7 +1816,7 @@ const ozonCatalogProducts = [
     "brand": "Spectrol Premium",
     "category": "elite",
     "description": "Товар из каталога Ozon Комплект-Моторс для легкового транспорта. Подробные характеристики и применимость указаны в карточке Ozon.",
-    "image": "assets/product-placeholder.svg",
+    "image": "assets/products/spectrol-official/s9-5w50.png",
     "ozonUrl": "https://www.ozon.ru/product/spectrol-premium-spektrol-legkovoe-5w-50-maslo-motornoe-sinteticheskoe-4-l-3579010773/",
     "source": "ozon"
   }
@@ -1879,7 +1893,7 @@ function renderCertificates() {
 }
 
 function renderTabs() {
-  tabRoot.innerHTML = brands.map((brand, index) => `
+  tabRoot.innerHTML = [allBrandsLabel, ...brands].map((brand, index) => `
     <button class="tab" role="tab" aria-selected="${brand === activeBrand}" data-brand="${brand}" data-reveal-index="${index}">
       ${brand}
     </button>
@@ -1897,15 +1911,15 @@ function renderTypeTabs() {
 function renderProducts() {
   const query = searchInput.value.trim().toLowerCase();
   const filtered = products.filter((product) => {
-    const inBrand = product.brand === activeBrand;
+    const inBrand = activeBrand === allBrandsLabel || product.brand === activeBrand;
     const inType = activeType === "all" || product.category === activeType;
     const inSearch = !query || `${product.name} ${product.description} ${product.ozonName || ""} ${categoryLabels[product.category]}`.toLowerCase().includes(query);
     return inBrand && inType && inSearch;
   });
 
   searchInput.disabled = false;
-  searchInput.placeholder = `Поиск по товарам ${activeBrand}`;
-  productCount.textContent = `${filtered.length} позиций · ${categoryLabels[activeType]}`;
+  searchInput.placeholder = activeBrand === allBrandsLabel ? "\u041f\u043e\u0438\u0441\u043a \u043f\u043e \u0432\u0441\u0435\u043c \u0431\u0440\u0435\u043d\u0434\u0430\u043c" : `\u041f\u043e\u0438\u0441\u043a \u043f\u043e \u0442\u043e\u0432\u0430\u0440\u0430\u043c ${activeBrand}`;
+  productCount.textContent = `${filtered.length} \u043f\u043e\u0437\u0438\u0446\u0438\u0439 \u00b7 ${activeBrand === allBrandsLabel ? "\u0432\u0441\u0435 \u0431\u0440\u0435\u043d\u0434\u044b" : activeBrand} \u00b7 ${categoryLabels[activeType]}`;
 
   if (filtered.length === 0) {
     productGrid.innerHTML = `
