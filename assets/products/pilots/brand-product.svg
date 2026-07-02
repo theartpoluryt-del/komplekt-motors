@@ -1,0 +1,8 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" role="img" aria-label="PILOTS">
+  <rect width="720" height="560" rx="40" fill="#f7f7f7"/>
+  <rect x="222" y="68" width="276" height="420" rx="34" fill="white" stroke="#dddddd" stroke-width="5"/>
+  <rect x="242" y="166" width="236" height="164" rx="22" fill="#202020"/>
+  <path d="M252 182c70 38 140-44 216 2v42c-74-48-146 34-216-2z" fill="#e1251b" opacity=".95"/>
+  <text x="360" y="266" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="900" fill="white">PILOTS</text>
+  <text x="360" y="386" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="800" fill="#111">LUBRICANTS</text>
+</svg>
